@@ -3,24 +3,22 @@ import java.util.Scanner; // Import the Scanner class
 public class CurrencyConverter{
     public static void main(String[] args){
         Scanner myObj = new Scanner(System.in); // Create a Scanner object
-        String[] currencies = { "US Dollar", "Euro", "Yen", "Pound Sterling", "Australian Dollar", "Quit"};
+        String[] currencies = { "US Dollar", "Euro", "Yen", "Pound Sterling", "Australian Dollar"};
 
 
-        System.out.println("This is a currency converter for your convenience.");
-        System.out.println("With this converter only helps convert the top 5 most used currencies worldwide.");
-        System.out.println("These currencies include:");
+        System.out.println("\nThis is a currency converter for your convenience.");
+        System.out.println("With this converter it converts the top 5 most used currencies worldwide.");
+        System.out.println("The currencies included are:");
 
         int counter = 1;
         for (String currency : currencies) {
             System.out.println(counter + " - "+ currency);
             counter++; 
         }
-        
-        System.out.println("Please choose 2 currencies to see the conversion.");
 
         boolean valid = false;
         while (!valid){
-            System.out.print("Please enter a number 1 - 6> ");
+            System.out.print("Please pick a number 1-5 according to the currencies above or 6 to quit the program> ");
             int choiceOne = myObj.nextInt(); // Read user input
 
             switch(choiceOne){
