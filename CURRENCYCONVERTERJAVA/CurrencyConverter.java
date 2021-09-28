@@ -1,39 +1,15 @@
+package CURRENCYCONVERTERJAVA;
 import java.util.Scanner; // Import the Scanner class
 
+import CURRENCYCONVERTERJAVA.Conversions.CountryConvs;
+import CURRENCYCONVERTERJAVA.Conversions.CountryGreeting;
+
 public class CurrencyConverter{
-    
-    static String countryCurrency(int option){
-        String[] options = {"1 US Dollar is equal to ", "1 Euro is equal to ",
-                            "1 Yen is equal to ", "1 pound sterling is equal to ",
-                            "1 Australian Dollar is equal to "};
-        return options[option];
-    }
-    static double usConversions(int choice){
-        double[] conversions = {0.85, 110.76, 0.73, 1.38};
-        return conversions[choice];
-    }
 
-    static double euroConversions(int choice){
-        double[] conversions = {1.17, 129.89, .86, 1.61};
-        return conversions[choice];
-    }
-
-    static double yenConversions(int choice){
-        double[] conversions = {0.009, 0.0077, 0.0066, 0.012};
-        return conversions[choice];
-    }
-
-    static double poundSterlingConversion(int choice){
-        double[] conversions = {1.37, 1.17, 151.45, 1.88};
-        return conversions[choice];
-    }
-
-    static double australianConversions(int choice){
-        double[] conversions = {0.73, 0.62, 80.42, 0.53};
-        return conversions[choice];
-    }
     public static void main(String[] args){
         Scanner myObj = new Scanner(System.in); // Create a Scanner object
+        CountryConvs x = new CountryConvs();
+        CountryGreeting y = new CountryGreeting();
         String[] currencies = { "US Dollar", "Euro", "Yen", "Pound Sterling", "Australian Dollar"};
 
         System.out.println("\nThis is a currency converter for your convenience.");
@@ -55,6 +31,8 @@ public class CurrencyConverter{
             System.out.print("Please pick a number 1-5 according to the currencies above to see the result> ");
             int choiceTwo = myObj.nextInt(); // Read user input
             
+
+            // If one of the two given inputs are not within the asked numbers, restart the loop.
             if ((choiceOne < 1 || choiceOne > 5) || (choiceTwo < 1 || choiceTwo > 5)){
                 System.out.println("One of your inputs was not valid. Please try again.");
                 continue;
@@ -70,63 +48,62 @@ public class CurrencyConverter{
 
             // US conversions
             if (choiceOne == 1 && choiceTwo == 2){
-                System.out.println(countryCurrency(0) + usConversions(0) + " Euros.");
+                System.out.println(y.usa() + x.usToEuro() + " Euros.");
             } else if (choiceOne == 1 && choiceTwo == 3){
-                 System.out.println(countryCurrency(0) + usConversions(1) + " Yen.");
+                 System.out.println(y.usa() + x.usToYen() + " Yen.");
             } else if (choiceOne == 1 && choiceTwo == 4){
-                 System.out.println(countryCurrency(0) + usConversions(2) + " Pound sterlings.");
+                 System.out.println(y.usa() + x.usToPoundSterling() + " Pound sterlings.");
             } else if (choiceOne == 1 && choiceTwo == 5){
-                 System.out.println(countryCurrency(0) + usConversions(3) + " Australian Dollars.");
+                 System.out.println(y.usa() + x.usToAustralianDollar() + " Australian Dollars.");
             } 
 
 
             // Euro conversions
             if (choiceOne == 2 && choiceTwo == 1) {
-                System.out.println(countryCurrency(1) + euroConversions(0) + " US Dollars.");
+                System.out.println(y.euro() + x.euroToUS() + " US Dollars.");
             } else if (choiceOne == 2 && choiceTwo == 3) {
-                System.out.println(countryCurrency(1) + euroConversions(1) + " Yen.");
+                System.out.println(y.euro() + x.euroToYen() + " Yen.");
             } else if (choiceOne == 2 && choiceTwo == 4) {
-                System.out.println(countryCurrency(1) + euroConversions(2) + " Pound Sterlings.");
+                System.out.println(y.euro() + x.euroToPoundSterling() + " Pound Sterlings.");
             } else if (choiceOne == 2 && choiceTwo == 5) {
-                System.out.println(countryCurrency(1) + euroConversions(3) + " Australian Dollars.");
+                System.out.println(y.euro() + x.euroToAustralianDollar() + " Australian Dollars.");
             }
 
 
             // Yen conversions
             if (choiceOne == 3 && choiceTwo == 1) {
-                System.out.println(countryCurrency(2) + yenConversions(0) + " US Dollars.");
+                System.out.println(y.yen() + x.yenToUS() + " US Dollars.");
             } else if (choiceOne == 3 && choiceTwo == 2) {
-                System.out.println(countryCurrency(2) + yenConversions(1) + " Euro.");
+                System.out.println(y.yen() + x.yenToEuro() + " Euro.");
             } else if (choiceOne == 3 && choiceTwo == 4) {
-                System.out.println(countryCurrency(2) + yenConversions(2) + " Pound Sterlings.");
+                System.out.println(y.yen() + x.yenToPoundSterling() + " Pound Sterlings.");
             } else if (choiceOne == 3 && choiceTwo == 5) {
-                System.out.println(countryCurrency(2) + yenConversions(3) + " Australian Dollars.");
+                System.out.println(y.yen() + x.yenToAustralianDollar() + " Australian Dollars.");
             }
 
 
             // Pound Sterling conversions
             if (choiceOne == 4 && choiceTwo == 1) {
-                System.out.println(countryCurrency(3) + poundSterlingConversion(0) + " US Dollars.");
+                System.out.println(y.poundSterling() + x.poundSterlingToUS() + " US Dollars.");
             } else if (choiceOne == 4 && choiceTwo == 2) {
-                System.out.println(countryCurrency(3) + poundSterlingConversion(1) + " Euro.");
+                System.out.println(y.poundSterling() + x.poundSterlingToEuro() + " Euro.");
             } else if (choiceOne == 4 && choiceTwo == 3) {
-                System.out.println(countryCurrency(3) + poundSterlingConversion(2) + " Yen");
+                System.out.println(y.poundSterling() + x.poundSterlingToYen() + " Yen");
             } else if (choiceOne == 4 && choiceTwo == 5) {
-                System.out.println(countryCurrency(3) + poundSterlingConversion(3) + " Australian Dollars.");
+                System.out.println(y.poundSterling() + x.poundSterlingToAustralianDollar() + " Australian Dollars.");
             }
 
 
             // Australian Dollar conversions
             if (choiceOne == 5 && choiceTwo == 1) {
-                System.out.println(countryCurrency(4) + australianConversions(0) + " US Dollars.");
+                System.out.println(y.australianDollar() + x.australianDollarToUS() + " US Dollars.");
             } else if (choiceOne == 5 && choiceTwo == 2) {
-                System.out.println(countryCurrency(4) + australianConversions(1) + " Euro.");
+                System.out.println(y.australianDollar() + x.australianDollarToEuro() + " Euro.");
             } else if (choiceOne == 5 && choiceTwo == 3) {
-                System.out.println(countryCurrency(4) + australianConversions(2) + " Yen");
+                System.out.println(y.australianDollar() + x.australianDollarToYen() + " Yen");
             } else if (choiceOne == 5 && choiceTwo == 4) {
-                System.out.println(countryCurrency(4) + australianConversions(3) + " Pound Sterlings");
+                System.out.println(y.australianDollar() + x.australianDollarToPoundSterling() + " Pound Sterlings");
             }
-
             valid = true;
 
             }
