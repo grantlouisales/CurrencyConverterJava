@@ -17,3 +17,9 @@ I started this project to teach myself Java while keeping the program efficient.
 * Git / GitHub
 * Java
 
+## Useful Websites
+
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Java Website](https://www.java.com/en/)
+* [w3schools Website](https://www.w3schools.com/)
+* [Geeks for Geeks Website](https://www.geeksforgeeks.org/)
