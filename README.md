@@ -9,7 +9,7 @@ I started this project to teach myself Java while keeping the program efficient.
 
 ## Youtube Demo
 
-* [Currency Converter Demo]() 
+* [Currency Converter Demo](https://www.youtube.com/watch?v=TJE6CS5AO-8) 
 
 ## Tools
 
