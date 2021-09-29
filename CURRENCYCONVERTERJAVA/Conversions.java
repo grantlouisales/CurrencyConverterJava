@@ -45,6 +45,8 @@ abstract class Conversions {
             convsTable.put("54", convs[4][3]);
         }
         public void output(HashMap<String, String> convsTable, String result){
+                // Loop through the hashmap and output the value according
+                // to the key that matches the result.
                 for (String i : convsTable.keySet()){
                     if (Objects.equals(i, result)){
                         System.out.println(convsTable.get(i));

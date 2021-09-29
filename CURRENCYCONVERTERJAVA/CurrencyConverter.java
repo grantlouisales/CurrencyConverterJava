@@ -14,6 +14,7 @@ public class CurrencyConverter{
 
         String[] currencies = { "US Dollar", "Euro", "Yen", "Pound Sterling", "Australian Dollar"};
 
+        // Prompt the user of the currencies available.
         System.out.println("\nThis is a currency converter for your convenience.");
         System.out.println("With this converter it converts the top 5 most used currencies worldwide.");
         System.out.println("The currencies included are:");
@@ -31,7 +32,6 @@ public class CurrencyConverter{
 
             System.out.print("Please pick a number 1-5 according to the currencies above to see the result> ");
             String choiceTwo = myObj.nextLine(); // Read user input
-            
             String result = choiceOne + choiceTwo;
 
             // If one of the two given inputs are not within the asked numbers, restart the loop.
