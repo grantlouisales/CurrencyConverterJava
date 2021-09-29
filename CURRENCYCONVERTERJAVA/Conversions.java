@@ -1,120 +1,55 @@
 package CURRENCYCONVERTERJAVA;
+import java.util.HashMap;
+import java.util.Objects;
+
 abstract class Conversions {
 
-    double[][] convs = {{ 0.85, 110.76, 0.73, 1.38 }, { 1.17, 129.89, .86, 1.61 }, { 0.009, 0.0077, 0.0066, 0.012 },
-                        { 1.37, 1.17, 151.45, 1.88 }, { 0.73, 0.62, 80.42, 0.53 }};
+    String[][] convs = {{ "1 US Dollar is equal to 0.85 Euros.", "1 US Dollar is equal to 110.76 Yen.", "1 US Dollar is equal to 0.73 Pound Sterlings.", "1 US Dollar is equal to 1.38 Australian Dollars."}, 
+                        { "1 Euro is equal to 1.17 US Dollars.", "1 Euro is equal to 129.89 Yen.", "1 Euro is equal to .86 Pound Sterlings." , "1 Euro is equal to 1.61 Australian Dollar."}, 
+                        { "1 Yen is equal to 0.009 US Dollars." , "1 Yen is equal to 0.0077 Euros.", "1 Yen is equal to 0.0066 Pound Sterlings.", "1 Yen is equal to 0.012 Australian Dollars."},
+                        { "1 pound sterling is equal to 1.37 US Dollars.", "1 pound sterling is equal to 1.17 Euros.", "1 pound sterling is equal to 151.45 Yen.", "1 pound sterling is equal to 1.88 Australian Dollars."}, 
+                        { "1 Australian Dollar is equal to 0.73 US Dollars.", "1 Australian Dollar is equal to 0.62 Euros.", "1 Australian Dollar is equal to 80.42 Yen.", "1 Australian Dollar is equal to 0.53 Pound Sterlings."}};
 
-    String[] options = { "1 US Dollar is equal to ", "1 Euro is equal to ", "1 Yen is equal to ",
-                         "1 pound sterling is equal to ", "1 Australian Dollar is equal to " };
 
     static class CountryConvs extends Conversions {
 
-        // Conversions for the US Dollar
-        public double usToEuro(){
-            return convs[0][0];
+        public void setup(HashMap<String, String> convsTable){
+            // USA
+            convsTable.put("12", convs[0][0]);
+            convsTable.put("13", convs[0][1]);
+            convsTable.put("14", convs[0][2]);
+            convsTable.put("15", convs[0][3]);
+
+            // Euro
+            convsTable.put("21", convs[1][0]);
+            convsTable.put("23", convs[1][1]);
+            convsTable.put("24", convs[1][2]);
+            convsTable.put("25", convs[1][3]);
+
+            // Yen
+            convsTable.put("31", convs[2][0]);
+            convsTable.put("32", convs[2][1]);
+            convsTable.put("34", convs[2][2]);
+            convsTable.put("35", convs[2][3]);
+
+            // Pound Sterling
+            convsTable.put("41", convs[3][0]);
+            convsTable.put("42", convs[3][1]);
+            convsTable.put("43", convs[3][2]);
+            convsTable.put("45", convs[3][3]);
+
+            // Australian Dollar
+            convsTable.put("51", convs[4][0]);
+            convsTable.put("52", convs[4][1]);
+            convsTable.put("53", convs[4][2]);
+            convsTable.put("54", convs[4][3]);
         }
-
-        public double usToYen(){
-            return convs[0][1];
-        } 
-
-        public double usToPoundSterling(){
-            return convs[0][2];
-        }
-
-        public double usToAustralianDollar(){
-            return convs[0][3];
-        }
-
-        // Conversions for the Euro
-        public double euroToUS() {
-            return convs[1][0];
-        }
-
-        public double euroToYen() {
-            return convs[1][1];
-        }
-
-        public double euroToPoundSterling() {
-            return convs[1][2];
-        }
-
-        public double euroToAustralianDollar() {
-            return convs[1][3];
-        }
-
-        // Conversions for the Yen
-        public double yenToUS() {
-            return convs[2][0];
-        }
-
-        public double yenToEuro() {
-            return convs[2][1];
-        }
-
-        public double yenToPoundSterling() {
-            return convs[2][2];
-        }
-
-        public double yenToAustralianDollar() {
-            return convs[2][3];
-        }
-
-        // Conversions for the Pound Sterling
-        public double poundSterlingToUS() {
-            return convs[3][0];
-        }
-
-        public double poundSterlingToEuro() {
-            return convs[3][1];
-        }
-
-        public double poundSterlingToYen() {
-            return convs[3][2];
-        }
-
-        public double poundSterlingToAustralianDollar() {
-            return convs[3][3];
-        }
-
-        // Conversions for the Australian Dollar
-        public double australianDollarToUS() {
-            return convs[4][0];
-        }
-
-        public double australianDollarToEuro() {
-            return convs[4][1];
-        }
-
-        public double australianDollarToYen() {
-            return convs[4][2];
-        }
-
-        public double australianDollarToPoundSterling() {
-            return convs[4][3];
+        public void output(HashMap<String, String> convsTable, String result){
+                for (String i : convsTable.keySet()){
+                    if (Objects.equals(i, result)){
+                        System.out.println(convsTable.get(i));
+                    }
+                }
+            }
         }
     }
-    
-    static class CountryGreeting extends Conversions {
-        
-        public String usa(){
-            return options[0];
-        }
-
-        public String euro(){
-            return options[1];
-        }
-
-        public String yen(){
-            return options[2];
-        }
-
-        public String poundSterling(){
-            return options[3];
-        }
-
-        public String australianDollar(){
-            return options[4];
-        }
-    }
-}
